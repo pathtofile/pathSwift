@@ -10,5 +10,6 @@ pool:
   vmImage: 'macOS-latest'
 
 steps:
-- script: echo "path/to/file"
+# - script: echo "path/to/file"
+- script: codesign -d -vvvvvv /bin/ls
   displayName: 'path/to/file'
