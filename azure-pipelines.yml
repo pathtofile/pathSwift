@@ -4,12 +4,15 @@ trigger:
 pool:
   vmImage: 'macOS-10.15'
 
-variables:
-    scheme: ''
-    sdk: 'iphoneos'
-    configuration: 'Release'
+# variables:
+#     scheme: ''
+#     sdk: 'iphoneos'
+#     configuration: 'Release'
 
 steps:
-- script: echo "path/to/file"
-# - script: codesign -d -vvvvvv /bin/ls
-  # displayName: 'path/to/file'
+  - task: Xcode@5
+  inputs:
+    scheme: ''
+    sdk: 'macos'
+    configuration: 'Release'
+    xcodeVersion: 'default'
