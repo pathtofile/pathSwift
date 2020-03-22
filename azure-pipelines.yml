@@ -27,5 +27,7 @@ steps:
   displayName: 'Build'
 - script: /usr/bin/xcodebuild -sdk $(sdk) -workspace ./swiftpath.xcodeproj/project.xcworkspace -scheme swiftpath -configuration $(configuration) -archivePath $(agent.buildDirectory)/pathout archive
   displayName: "Archive"
-- script: ls -Rl $(agent.buildDirectory)
-  displayName: 'listing output'
+# - script: ls -Rl $(agent.buildDirectory)
+  # displayName: 'listing output'
+- script: $(agent.buildDirectory)/pathout.xcarchive/Products/usr/local/bin/swiftpath
+  displayName: "Run"
