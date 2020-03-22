@@ -1,15 +1,15 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 trigger:
 - master
 
 pool:
-  vmImage: 'macOS-latest'
+  vmImage: 'macOS-10.15'
+
+variables:
+    scheme: ''
+    sdk: 'iphoneos'
+    configuration: 'Release'
 
 steps:
-# - script: echo "path/to/file"
-- script: codesign -d -vvvvvv /bin/ls
-  displayName: 'path/to/file'
+- script: echo "path/to/file"
+# - script: codesign -d -vvvvvv /bin/ls
+  # displayName: 'path/to/file'
