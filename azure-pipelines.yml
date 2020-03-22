@@ -19,7 +19,7 @@ pool:
 
 variables:
   scheme: ''
-  sdk: 'macos'
+  sdk: 'macosx10.15'
   configuration: 'Release'
 
 steps:
