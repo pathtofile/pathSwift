@@ -16,7 +16,7 @@ steps:
     scheme: '$(scheme)'
     configuration: '$(configuration)'
     xcodeVersion: 'default'
-    exportPath: '$(agent.buildDirectory)/output/$(sdk)/$(configuration)'
+    # exportPath: '$(agent.buildDirectory)/output/$(sdk)/$(configuration)'
     archivePath: '$(agent.buildDirectory)/outputarchive/$(sdk)/$(configuration)'
     packageApp: true
 
