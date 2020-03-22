@@ -95,7 +95,7 @@ iOSInjectionProject/
 *.mode2v3
 *.perspectivev3
 *.xcuserstate
-project.xcworkspace/
+# project.xcworkspace/
 xcuserdata
 
 .DS_Store
