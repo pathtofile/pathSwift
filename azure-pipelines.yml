@@ -4,15 +4,30 @@ trigger:
 pool:
   vmImage: 'macOS-10.15'
 
-# variables:
+# # variables:
+# #     scheme: ''
+# #     sdk: 'iphoneos'
+# #     configuration: 'Release'
+
+# steps:
+#   - task: Xcode@5
+#   inputs:
 #     scheme: ''
-#     sdk: 'iphoneos'
+#     sdk: 'macos'
 #     configuration: 'Release'
+#     xcodeVersion: 'default'
+
+variables:
+  scheme: ''
+  sdk: 'macos'
+  configuration: 'Release'
 
 steps:
-  - task: Xcode@5
+- task: Xcode@5
   inputs:
-    scheme: ''
-    sdk: 'macos'
-    configuration: 'Release'
-    xcodeVersion: 'default'
+    sdk: '$(sdk)'
+    scheme: '$(scheme)'
+    configuration: '$(configuration)'
+    xcodeVersion: 'default' # Options: default, 10, 9, 8, specifyPath
+    exportPath: '$(agent.buildDirectory)/output/$(sdk)/$(configuration)'
+    packageApp: false
