@@ -18,10 +18,10 @@ steps:
     xcodeVersion: 'default'
     # exportPath: '$(agent.buildDirectory)/output/$(sdk)/$(configuration)'
     archivePath: '$(agent.buildDirectory)/outputarchive/$(sdk)/$(configuration)'
-    packageApp: true
     exportOptions: "Specify"
     exportMethod: "package"
     exportTeamId: "AAAAAAAA"
+    packageApp: false
 
 - script: ls -Rl $(agent.buildDirectory)
   displayName: 'listing output'
