@@ -23,9 +23,11 @@ steps:
 #     exportTeamId: "AAAAAAAA"
 #     packageApp: true
 
-- script: /usr/bin/xcodebuild -sdk $(sdk) -workspace ./swiftpath.xcodeproj/project.xcworkspace -scheme swiftpath -configuration $(configuration) build CODE_SIGN_ENTITLEMENTS=./swiftpath.entitlements
+# - script: /usr/bin/xcodebuild -sdk $(sdk) -workspace ./swiftpath.xcodeproj/project.xcworkspace -scheme swiftpath -configuration $(configuration) build CODE_SIGN_ENTITLEMENTS=./swiftpath.entitlements
+# - script: /usr/bin/xcodebuild -sdk $(sdk) -workspace ./swiftpath.xcodeproj/project.xcworkspace -scheme swiftpath -configuration $(configuration) -archivePath $(agent.buildDirectory)/pathout archive CODE_SIGN_ENTITLEMENTS=./swiftpath.entitlements
+- script: /usr/bin/xcodebuild -sdk $(sdk) -workspace ./swiftpath.xcodeproj/project.xcworkspace -scheme swiftpath -configuration $(configuration) build
   displayName: 'Build'
-- script: /usr/bin/xcodebuild -sdk $(sdk) -workspace ./swiftpath.xcodeproj/project.xcworkspace -scheme swiftpath -configuration $(configuration) -archivePath $(agent.buildDirectory)/pathout archive CODE_SIGN_ENTITLEMENTS=./swiftpath.entitlements
+- script: /usr/bin/xcodebuild -sdk $(sdk) -workspace ./swiftpath.xcodeproj/project.xcworkspace -scheme swiftpath -configuration $(configuration) -archivePath $(agent.buildDirectory)/pathout archive
   displayName: "Archive"
 # - script: ls -Rl $(agent.buildDirectory)
   # displayName: 'listing output'
