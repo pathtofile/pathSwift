@@ -23,4 +23,4 @@ steps:
   displayName: 'listing output'
 
 - script: ls -l $(agent.buildDirectory)/output/$(sdk)/$(configuration)\swiftpath
-    displayName: 'Test Run'
+  displayName: 'Test Run'
