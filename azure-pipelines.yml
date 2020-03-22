@@ -10,18 +10,22 @@ variables:
   configuration: 'Debug'
 
 steps:
-- task: Xcode@5
-  inputs:
-    sdk: '$(sdk)'
-    scheme: '$(scheme)'
-    configuration: '$(configuration)'
-    xcodeVersion: 'default'
-    exportPath: '$(agent.buildDirectory)/output/$(sdk)/$(configuration)'
-    archivePath: '$(agent.buildDirectory)/outputarchive/$(sdk)/$(configuration)'
-    exportOptions: "Specify"
-    exportMethod: "development"
-    exportTeamId: "AAAAAAAA"
-    packageApp: true
+# - task: Xcode@5
+#   inputs:
+#     sdk: '$(sdk)'
+#     scheme: '$(scheme)'
+#     configuration: '$(configuration)'
+#     xcodeVersion: 'default'
+#     exportPath: '$(agent.buildDirectory)/output/$(sdk)/$(configuration)'
+#     archivePath: '$(agent.buildDirectory)/outputarchive/$(sdk)/$(configuration)'
+#     exportOptions: "Specify"
+#     exportMethod: "development"
+#     exportTeamId: "AAAAAAAA"
+#     packageApp: true
 
+- script: /usr/bin/xcodebuild -sdk $(sdk) -workspace ./swiftpath.xcodeproj/project.xcworkspace -scheme swiftpath -configuration $(configuration) build
+  displayName: 'Build'
+- script: /usr/bin/xcodebuild -sdk $(sdk) -workspace ./swiftpath.xcodeproj/project.xcworkspace -scheme swiftpath -configuration $(configuration) -archivePath ./outarchive
+  displayName: "Archive"
 - script: ls -Rl $(agent.buildDirectory)
   displayName: 'listing output'
