@@ -7,7 +7,7 @@ pool:
 variables:
   scheme: ''
   sdk: 'macosx10.15'
-  configuration: 'Release'
+  configuration: 'Debug'
 
 steps:
 - task: Xcode@5
@@ -17,7 +17,8 @@ steps:
     configuration: '$(configuration)'
     xcodeVersion: 'default'
     exportPath: '$(agent.buildDirectory)/output/$(sdk)/$(configuration)'
-    packageApp: false
+    archivePath: '$(agent.buildDirectory)/outputarchive/$(sdk)/$(configuration)'
+    packageApp: true
 
 - script: ls -Rl $(agent.buildDirectory)
   displayName: 'listing output'
